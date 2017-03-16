@@ -1,0 +1,45 @@
+;Laboratorio no.6 
+;Maria Mercedes Retolaza Reyna, 16339 
+;Temario no.6 
+; El siguiente programa muestra la cantidad de numeros negativos almacenados en la memoria x3040 
+;Inicio del Programa 
+0011 0000 0000 0000
+; LEA R3 x2F
+1110 011 00010 1111 
+; R2 <- 0 
+0101 010 010 1 00000 
+; R5 <- 3 (Contador del programa) 
+0101 101 101 1 00000 ;AND 
+0001 101 101 1 00011 ;Se le agrega 3 
+; R4 <- x8000 (Se le agrega en la memoria el numero 10...0 para compararlo) Se guardará en x3050 
+1110 100 00100 1100 
+;LDR 
+0110 001 011 000000
+;ADD 
+0001 011 011 1 00001 ; Se le suma uno al contador 
+;Resta del contador R5 
+0001 101 101 1 11111 
+; Branch del Contador
+0000 010 000000010 
+; R1 <- R1 AND R4 
+0101 001 001 0 00 100 
+; Branch de R1=0 
+0000 101 000000010 
+;Suma de R2 <- R2 + 1 (Resultado) 
+0001 010 010 1 00001 
+; Branch de Regreso a la instrucción 
+0000 111 000000010 
+; LEA R6 x3040  
+1110 110 00011 0010 
+;STR R2 
+0111 010 110 000000
+;TRAP 
+1111 0000 0010 0101 
+
+
+
+
+ 
+
+
+
